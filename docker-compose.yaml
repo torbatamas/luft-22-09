@@ -17,8 +17,16 @@ services:
       - ./sql:/docker-entrypoint-initdb.d
       - vipvol:/var/lib/postgresql/data
 
+  end:
+    image: lunch:v6
+    ports:
+      - 80
+    environment:
+      - VIRTUAL_HOST=end.vcap.me
+      - TITLE=END
+      - COLOR=cyan
   dinner:
-    image: lunch:v5
+    image: lunch:v6
     ports:
       - 80
     environment:
